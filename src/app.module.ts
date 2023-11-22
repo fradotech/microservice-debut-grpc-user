@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ProductModule } from './product/product.module';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [ProductModule],
+  imports: [UserModule],
   controllers: [],
   providers: [],
 })
 export class AppModule {
-  static readonly protoPackages = [...ProductModule.protoPackages];
-  static readonly protoPaths = [...ProductModule.protoPaths];
+  static readonly protoPackages = [...UserModule.protoPackages];
+  static readonly protoPaths = [...UserModule.protoPaths];
 }

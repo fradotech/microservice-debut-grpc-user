@@ -10,7 +10,7 @@ async function bootstrap() {
       options: {
         package: AppModule.protoPackages,
         protoPath: AppModule.protoPaths,
-        url: 'localhost:5000',
+        url: 'localhost:5001',
       },
     },
   );

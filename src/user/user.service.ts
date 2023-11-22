@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ProductService {
+export class UserService {
   findAll() {
     return [
       { id: 1, name: 'John' },
@@ -10,6 +10,6 @@ export class ProductService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} product`;
+    return `This action returns a #${id} user`;
   }
 }
