@@ -3,7 +3,10 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class ProductService {
   findAll() {
-    return `This action returns all product`;
+    return [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Doe' },
+    ];
   }
 
   findOne(id: number) {

@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { join } from 'path';
 import { ProductModule } from './product/product.module';
 
 @Module({
@@ -8,6 +7,6 @@ import { ProductModule } from './product/product.module';
   providers: [],
 })
 export class AppModule {
-  static readonly protoPackages = ['product'];
-  static readonly protoPaths = [join(__dirname, 'product/product.proto')];
+  static readonly protoPackages = [...ProductModule.protoPackages];
+  static readonly protoPaths = [...ProductModule.protoPaths];
 }

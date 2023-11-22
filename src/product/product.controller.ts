@@ -2,16 +2,16 @@ import { Controller } from '@nestjs/common';
 import { GrpcMethod, Payload } from '@nestjs/microservices';
 import { ProductService } from './product.service';
 
-@Controller()
+@Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  @GrpcMethod('ProductService', 'FindAll')
+  @GrpcMethod('ProductService')
   findAll() {
     return this.productService.findAll();
   }
 
-  @GrpcMethod('ProductService', 'FindOne')
+  @GrpcMethod('ProductService')
   findOne(@Payload() id: number) {
     return this.productService.findOne(id);
   }
