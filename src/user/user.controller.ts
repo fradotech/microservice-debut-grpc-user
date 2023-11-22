@@ -1,18 +1,20 @@
-import { Controller } from '@nestjs/common';
-import { GrpcMethod, Payload } from '@nestjs/microservices';
+import { Controller, Param } from '@nestjs/common';
+import { GrpcMethod } from '@nestjs/microservices';
 import { UserService } from './user.service';
 
-@Controller('products')
+@Controller('users')
 export class UserController {
   constructor(private readonly productService: UserService) {}
 
+  // @Get()
   @GrpcMethod('UserService')
   findAll() {
     return this.productService.findAll();
   }
 
+  // @Get(':id')
   @GrpcMethod('UserService')
-  findOne(@Payload() id: number) {
+  findOne(@Param('id') id: number) {
     return this.productService.findOne(id);
   }
 }

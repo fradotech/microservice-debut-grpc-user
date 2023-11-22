@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { MicroserviceModule } from './microservice/microservice.module';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [MicroserviceModule, UserModule],
   controllers: [],
   providers: [],
 })
