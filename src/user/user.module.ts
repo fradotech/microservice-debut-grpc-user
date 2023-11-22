@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { join } from 'path';
+import { MicroserviceModule } from 'src/microservice/microservice.module';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
 @Module({
+  imports: [MicroserviceModule],
   controllers: [UserController],
   providers: [UserService],
 })

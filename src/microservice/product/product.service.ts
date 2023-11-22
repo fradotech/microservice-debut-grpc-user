@@ -1,29 +1,26 @@
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
+import { IProduct } from './product.interface';
 import { PRODUCT_OPTION } from './product.option';
 
 interface IProductService {
-  findAll({}): Observable<any>;
-  findOne({}): Observable<any>;
+  findAll({}): Observable<{ data: IProduct[] }>;
+  findOne({}): Observable<IProduct>;
 }
 
 @Injectable()
-export class ProductService implements OnModuleInit, IProductService {
+export class ProductService {
   constructor(@Inject(PRODUCT_OPTION.name) private client: ClientGrpc) {}
 
-  private productService: IProductService;
+  private readonly productService: IProductService =
+    this.client.getService('ProductService');
 
-  onModuleInit() {
-    this.productService =
-      this.client.getService<IProductService>('ProductService');
+  async findAll(): Promise<{ data: IProduct[] }> {
+    return await lastValueFrom(this.productService.findAll({}));
   }
 
-  findAll(): Observable<string> {
-    return this.productService.findAll({ id: 1 });
-  }
-
-  findOne(): Observable<string> {
-    return this.productService.findOne({ id: 1 });
+  async findOne(id: number): Promise<IProduct> {
+    return await lastValueFrom(this.productService.findOne({ id }));
   }
 }

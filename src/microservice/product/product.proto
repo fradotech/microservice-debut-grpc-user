@@ -10,7 +10,7 @@ service ProductService {
 message Empty {}
 
 message ProductList {
-  repeated Product products = 1;
+  repeated Product data = 1;
 }
 
 message ProductById {
