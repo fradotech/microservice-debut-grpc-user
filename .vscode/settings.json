@@ -11,5 +11,8 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }
