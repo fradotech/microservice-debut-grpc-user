@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MicroserviceModule } from './microservice/microservice.module';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [MicroserviceModule, UserModule],

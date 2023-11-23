@@ -9,7 +9,7 @@ export class UserController {
   @Get()
   @GrpcMethod('UserService')
   findAll() {
-    return this.productService.findAll();
+    return this.productService.findWithProduct();
   }
 
   @Get(':id')
