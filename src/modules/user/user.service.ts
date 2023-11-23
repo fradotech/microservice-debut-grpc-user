@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { User } from '@prisma/client';
 import { PrismaService } from 'src/database/prisma.service';
 import { ProductService } from 'src/microservice/product/product.service';
 import { IUser } from './user.interface';
@@ -29,5 +30,9 @@ export class UserService {
       name: 'John',
       product: await this.productService.findOne(id),
     };
+  }
+
+  async create(req: User) {
+    return await this.repository.create({ data: req });
   }
 }
