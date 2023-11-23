@@ -6,7 +6,9 @@ export class UserService {
   constructor(private readonly productService: ProductService) {}
 
   async findAll() {
-    const products = await this.productService.findAll();
+    // const products = await this.productService.findAll();
+    const products = { data: [] };
+
     const data = [
       { id: 1, name: 'John', products: products.data },
       { id: 2, name: 'Doe', products: products.data },
