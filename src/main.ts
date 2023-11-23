@@ -5,7 +5,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  Logger.log('Start', 'gRPC');
+  Logger.verbose('Start', 'gRPC');
   const microservice =
     await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
       transport: Transport.GRPC,
@@ -18,7 +18,7 @@ async function bootstrap() {
 
   await microservice.listen();
 
-  Logger.log('Start', 'HTTP');
+  Logger.verbose('Start', 'HTTP');
   const http = await NestFactory.create<NestExpressApplication>(AppModule);
   await http.listen(3000);
 }
